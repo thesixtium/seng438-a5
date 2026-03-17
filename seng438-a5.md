@@ -41,13 +41,187 @@ After completing this part, students will:
 The testing tool to be used in this part, is 
 - C-SFRAT (an open source software developed by Python). 
 
+Got you — here is **fully clean, copy-pasteable Markdown only** (no special blocks, no IDs, no extra formatting issues):
+
+
+Nice — let’s make this **fully explicit, step-by-step**, so students can literally follow it line by line without confusion.
+
+Here is the **complete, copyable Markdown with ALL steps shown clearly**:
+
 
 ## 2.3 SYSTEM UNDER TEST
+
 The system to be tested for this part is a hypothetical system and its failure data is attached ([failure-data-set2.zip](./failure-data-set2.zip)). There will be a few test data files and the students should select one of them.
 
-**Note**:
-  - For this assignment, take a deeper look into the suitable sample input for the tools that you are supposed to use, since you need to convert your selected input data into a compatible input file based on the used tool.
-  - If you are using C-SFRAT, you need to convert the input data into the following format: (T: time interval, FC: failure count, E: execution time measured in hours, F: failure identification work measured in person hours, C: computer time failure identification measured in hours).
+**Note:**
+- For this assignment, take a deeper look into the suitable sample input for the tools that you are supposed to use, since you need to **convert your selected input data** into a compatible input file based on the used tool.
+
+---
+
+### 🔧 Example: Data Preparation for C-SFRAT (To Include in Report)
+
+#### Data Preparation
+
+The provided datasets are in the form of raw failure logs containing information such as failure time, severity, and descriptions. However, C-SFRAT requires interval-based input data. Therefore, preprocessing is required before analysis.
+
+The required input format for C-SFRAT is:
+
+- **T**: time interval index  
+- **FC**: number of failures in the interval  
+- **E**: execution effort (hours)  
+- **F**: failure identification effort (person-hours)  
+- **C**: computer-based effort (hours)  
+
+---
+
+#### Conversion Method (Step-by-Step)
+
+We demonstrate the conversion using `Failure Report 1.docx`.
+
+
+### Step 1: Extract Failure Times
+
+From the report, extract only the **Time (min)** values:
+
+```
+8, 8, 8, 8,
+40, 40, 40,
+48,
+56,
+80, 80, 80, 80, 80, 80, 80,
+112,
+120,
+136, 136,
+176,
+192, 192,
+208,
+240, 240,
+248,
+272, 272,
+288,
+296,
+320,
+336,
+352,
+368,
+392,
+416,
+440,
+448,
+528,
+640,
+712
+````
+
+
+
+### Step 2: Define Time Intervals (1 hour = 60 min)
+
+We divide time into **1-hour intervals**:
+
+| Interval (T) | Time Range (min) |
+|-------------|------------------|
+| 1 | 0–60 |
+| 2 | 60–120 |
+| 3 | 120–180 |
+| 4 | 180–240 |
+| 5 | 240–300 |
+| 6 | 300–360 |
+| 7 | 360–420 |
+| 8 | 420–480 |
+| 9 | 480–540 |
+| 10 | 540–600 |
+| 11 | 600–660 |
+| 12 | 660–720 |
+
+
+### Step 3: Assign Each Failure to an Interval
+
+We now group each failure time into its interval:
+
+- **0–60** → 8, 8, 8, 8, 40, 40, 40, 48, 56 → **9 failures**
+- **60–120** → 80, 80, 80, 80, 80, 80, 80, 112 → **8 failures**
+- **120–180** → 120, 136, 136, 176 → **4 failures**
+- **180–240** → 192, 192, 208, 240, 240 → **5 failures**
+- **240–300** → 248, 272, 272, 288, 296 → **5 failures**
+- **300–360** → 320, 336, 352 → **3 failures**
+- **360–420** → 368, 392, 416 → **3 failures**
+- **420–480** → 440, 448 → **2 failures**
+- **480–540** → 528 → **1 failure**
+- **540–600** → (none) → **0 failures**
+- **600–660** → 640 → **1 failure**
+- **660–720** → 712 → **1 failure**
+
+
+
+### Step 4: Compute FC (Failure Count)
+
+| T | FC |
+|---|----|
+| 1 | 9 |
+| 2 | 8 |
+| 3 | 4 |
+| 4 | 5 |
+| 5 | 5 |
+| 6 | 3 |
+| 7 | 3 |
+| 8 | 2 |
+| 9 | 1 |
+| 10 | 0 |
+| 11 | 1 |
+| 12 | 1 |
+
+
+### Step 5: Assign Effort Variables
+
+Since effort data is not provided:
+
+- **E = 1** (1 hour per interval)  
+- **F = 1**  
+- **C = 1**  
+
+
+### Final Processed Dataset
+
+```csv
+T,FC,E,F,C
+1,9,1,1,1
+2,8,1,1,1
+3,4,1,1,1
+4,5,1,1,1
+5,5,1,1,1
+6,3,1,1,1
+7,3,1,1,1
+8,2,1,1,1
+9,1,1,1,1
+10,0,1,1,1
+11,1,1,1,1
+12,1,1,1,1
+````
+
+
+### Remarks
+
+* Only **failure times** are used; other fields (e.g., severity, description) are ignored.
+* The dataset must be converted into intervals before using C-SFRAT.
+* Effort variables are not provided and must be reasonably assumed.
+* Clearly state and justify all assumptions in your report.
+
+
+#### Additional Note on Effort Variables
+
+Most datasets provided in this assignment do not include explicit effort variables.
+Students are expected to recognize this limitation and apply reasonable assumptions (e.g., constant values).
+
+For further understanding of how effort variables are used in practice, students may explore the example datasets included with C-SFRAT:
+
+```
+C:\Users\sajad\Downloads\C-SFRAT_win_v1-0 (2)\C-SFRAT\datasets
+```
+
+These datasets are intended **only for reference and exploration**, and do not replace the requirement to preprocess the provided failure data.
+
+
 
 ## 2.4 FAMILIARIZATION
 
