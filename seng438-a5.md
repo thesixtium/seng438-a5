@@ -41,14 +41,6 @@ After completing this part, students will:
 The testing tool to be used in this part, is 
 - C-SFRAT (an open source software developed by Python). 
 
-Got you — here is **fully clean, copy-pasteable Markdown only** (no special blocks, no IDs, no extra formatting issues):
-
-
-Nice — let’s make this **fully explicit, step-by-step**, so students can literally follow it line by line without confusion.
-
-Here is the **complete, copyable Markdown with ALL steps shown clearly**:
-
-
 ## 2.3 SYSTEM UNDER TEST
 
 The system to be tested for this part is a hypothetical system and its failure data is attached ([failure-data-set2.zip](./failure-data-set2.zip)). There will be a few test data files and the students should select one of them.
