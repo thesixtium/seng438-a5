@@ -208,7 +208,7 @@ Students are expected to recognize this limitation and apply reasonable assumpti
 For further understanding of how effort variables are used in practice, students may explore the example datasets included with C-SFRAT:
 
 ```
-C:\Users\sajad\Downloads\C-SFRAT_win_v1-0 (2)\C-SFRAT\datasets
+..\C-SFRAT_win_v1-0 (2)\C-SFRAT\datasets
 ```
 
 These datasets are intended **only for reference and exploration**, and do not replace the requirement to preprocess the provided failure data.
