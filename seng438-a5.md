@@ -28,22 +28,22 @@ Both will be practiced in this lab.
 
 ## 2.1 OBJECTIVES
 
-The purpose of this assignment is to give students hands-on experience on assessing the reliability of a hypothetical system given its failure data collected during integration testing. To do this, students will need to install a reliability growth assessment tool, such as C-SFRAT , and create plots of failure rate and reliability of SUT.
+The purpose of this assignment is to give students hands-on experience on assessing the reliability of a hypothetical system given its failure data collected during integration testing. To do this, students will need to install a reliability growth assessment tool, such as C-SFRAT, and create plots of the failure rate and reliability of the SUT.
 
 After completing this part, students will:
 
 - gain an understanding of what reliability growth testing is and why it is useful.
-- be able to measure the failure rate, MTTF and reliability of the SUT through analyzing the test data.
+- be able to measure the failure rate, MTTF, and reliability of the SUT through analyzing the test data.
 - become familiar with the features and usage of a reliability growth testing tool.
 
 ## 2.2 TESTING TOOLS
 
-The testing tool to be used in this part, is 
-- C-SFRAT (an open source software developed by Python). 
+The testing tool to be used in this part is 
+- C-SFRAT (an open source software developed in Python). 
 
 ## 2.3 SYSTEM UNDER TEST
 
-The system to be tested for this part is a hypothetical system and its failure data is attached ([failure-data-set2.zip](./failure-data-set2.zip)). There will be a few test data files and the students should select one of them.
+The system to be tested for this part is a hypothetical system and its failure data is attached ([failure-data-set2.zip](./failure-data-set2.zip)). There will be a few test data files and students should select one of them.
 
 **Note:**
 - For this assignment, take a deeper look into the suitable sample input for the tools that you are supposed to use, since you need to **convert your selected input data** into a compatible input file based on the used tool.
@@ -54,7 +54,7 @@ The system to be tested for this part is a hypothetical system and its failure d
 
 #### Data Preparation
 
-The provided datasets are in the form of raw failure logs containing information such as failure time, severity, and descriptions. However, C-SFRAT requires interval-based input data. Therefore, preprocessing is required before analysis.
+The provided datasets are in the form of raw failure logs containing information such as failure time, severity, and descriptions. However, C-SFRAT requires interval-based input data. Therefore, preprocessing is required before performing the analysis.
 
 The required input format for C-SFRAT is:
 
@@ -129,7 +129,7 @@ We divide time into **1-hour intervals**:
 
 ### Step 3: Assign Each Failure to an Interval
 
-We now group each failure time into its interval:
+We now group each failure time into its corresponding interval:
 
 - **0–60** → 8, 8, 8, 8, 40, 40, 40, 48, 56 → **9 failures**
 - **60–120** → 80, 80, 80, 80, 80, 80, 80, 112 → **8 failures**
@@ -227,11 +227,8 @@ These datasets are intended **only for reference and exploration**, and do not r
 ## 2.5  **INSTRUCTIONS**
 
 ### 2.5.1 Running C-SFRAT
-
-The Covariate Software Failure and Reliability Assessment Tool (C-SFRAT) is an open source application that applies covariate software reliability models to help guide model selection and test activity allocation. 
-
 1. Run C-SFRAT.exe for Windows  
-2. Execute steps 2-6 same as 2.5.1
+2. Execute steps 2–6 as in Section 2.5.1.
 
 For more information about the input format and features of the tool, you can read [A covariate software tool to guide test activity allocation](https://www.sciencedirect.com/science/article/pii/S2352711021001588)
 
@@ -243,18 +240,18 @@ For more information about the input format and features of the tool, you can re
 
 2. Software Failure and Reliability Assessment Tool (SFRAT): [https://github.com/LanceFiondella/srt.core](https://github.com/LanceFiondella/srt.core)
 
-# 3 Part 2: ASSESSMENT USING RELIABILITY DEMIONSTRATION CHART
+# 3 Part 2: ASSESSMENT USING RELIABILITY DEMONSTRATION CHART
 
 ## 3.1 OBJECTIVES
 
-Reliability Demonstration Chart (RDC) is an efficient way of checking whether the target failure rate or MTTF is met or not. It is based on collecting failure data at time points. The main objective of this part of the assignment is to familiarize students with RDC tool and its usage during reliability assessment.
+Reliability Demonstration Chart (RDC) is an efficient way of checking whether the target failure rate or MTTF is met. It is based on collecting failure data at time points. The main objective of this part of the assignment is to familiarize students with the RDC tool and its usage during reliability assessment.
 
-We usually use RDC when failure data is limited to a few failures, time of failures are known, and we want to find out what is the trend for reliability of the system.
+We usually use RDC when failure data is limited to a few failures, failure times are known, and we want to find out what the reliability trend of the system is.
 
 After completing this part, students will:
 
-- be able to decide upon adequacy of testing for a given MTTF of the SUT through plotting thetest data.
-- become familiar with the features and usage of an RDCtool.
+- be able to decide upon adequacy of testing for a given MTTF of the SUT through plotting the test data.
+- become familiar with the features and usage of an RDC tool.
 
 ## 3.2 TESTING TOOLS
 
@@ -270,8 +267,8 @@ The system to be tested for this part is a hypothetical system and its failure d
 
 ### 3.4.1 INSTALL RDC (**Suggestion**)
 
-1. Get Reliability-Demonstration-Chart.xls and its manual RDC-xls-Overview.pdf for the attachemnt OR download it from the [Sourceforge.net](https://sourceforge.net/projects/rdc/).
-2. Open the excel sheet and verify that it works by setting various risk factors, i.e. check whether the right chart will be generated.
+1. Get Reliability-Demonstration-Chart.xls and its manual RDC-xls-Overview.pdf for the attachment OR download it from the [Sourceforge.net](https://sourceforge.net/projects/rdc/).
+2. Open the Excel sheet and verify that it works by setting various risk factors, i.e. check whether the right chart will be generated.
 3. Read the document explaining its functionality.
 
 ![](install-rdc.png) 
@@ -282,7 +279,7 @@ The system to be tested for this part is a hypothetical system and its failure d
 1. Make yourself familiar with the RDC. Try to understand how it works. Vertical axis is failure number (n), horizontal axis is normalized failure data (Tn), i.e., failure time divided by MTTF.
 1. How to use RDC? You need to input the failure data (failure number and failure time); identify the target MTTF and anticipated confidence levels; and draw the failure points on the graph and analyze the trend. Consult with the examples in the lecture slides and RDC manual.
 1. You can experiment with &quot;what-if&quot; scenarios by setting various values for MTTF and draw the plot.
-1. Select the minimum MTTFmin for which the SUT becomes acceptable. Set MTTF to twice and half MTTFmin and plot the failure data.
+1. Select the minimum MTTF (MTTF_min) for which the SUT becomes acceptable. Set MTTF to twice and half MTTFmin and plot the failure data.
 1. Document the results at the end of your report file.
 
 # 4 Submission
@@ -290,7 +287,7 @@ The system to be tested for this part is a hypothetical system and its failure d
 Submit the results for part 1 and part 2.
 
 1. Document the results (plot/diagrams as well as explanation of each).
-2. Comparethe results of Part1 and Part 2 and justify the case that each technique can be used.
+2. Compare the results of Part 1 and Part 2 and justify the case that each technique can be used.
 
 # 5 Evaluation Criteria:
 
@@ -298,7 +295,7 @@ Submit the results for part 1 and part 2.
 
 The objectives for the demo are a) Preparing you for technical presentations, b) an early assessment of your work to give you a second chance to submit a high-quality report, and c) making sure everybody in the team contributes evenly.
 
-It is mandatory for all team members to attend the demo session and explain the TAs in the lab what they have done for this assignment. For this particular assignment, **Lab10** is the demo day. You are expected to almost finish the assignment by the lab hour. All the team members should attend the lab. The TAs will go through the groups and each group must demonstrate the results of each part of the assignment.
+It is mandatory for all team members to attend the demo session and explain to the TAs in the lab what they have done for this assignment. For this particular assignment, **Lab 10** is the demo day. You are expected to almost finish the assignment by the lab hour. All the team members should attend the lab. The TAs will go through the groups and each group must demonstrate the results of each part of the assignment.
 
 
 **NOTE: Student who miss the demo session or are unable to demo what is detailed above are considered as less- contributors and may lose up to the entire assignment's mark.**
