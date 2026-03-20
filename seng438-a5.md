@@ -295,7 +295,7 @@ Submit the results for part 1 and part 2.
 
 The objectives for the demo are a) Preparing you for technical presentations, b) an early assessment of your work to give you a second chance to submit a high-quality report, and c) making sure everybody in the team contributes evenly.
 
-It is mandatory for all team members to attend the demo session and explain to the TAs in the lab what they have done for this assignment. For this particular assignment, **Lab 10** is the demo day. You are expected to almost finish the assignment by the lab hour. All the team members should attend the lab. The TAs will go through the groups and each group must demonstrate the results of each part of the assignment.
+It is mandatory for all team members to attend the demo session and explain to the TAs in the lab what they have done for this assignment. For this particular assignment, you are expected to almost finish the assignment by the lab hour. All the team members should attend the lab. The TAs will go through the groups and each group must demonstrate the results of each part of the assignment.
 
 
 **NOTE: Student who miss the demo session or are unable to demo what is detailed above are considered as less- contributors and may lose up to the entire assignment's mark.**
